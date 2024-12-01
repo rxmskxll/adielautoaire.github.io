@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contácto - Adiel Autoaire</title>
+    <link rel="stylesheet" href="styles/contact/contacto.css">
+</head>
+<body>
+    
+    <?php include 'header.html';?>
+
+    <main class="contact-container">
+        <h1>Contáctanos</h1>
+        <div class="contact-info">
+            <div class="contact-details">
+                <h2>Información de Contacto</h2>
+                <p>&#9990; 899 853 1037</p>
+                <p>&#128241; 899 896 8409</p>
+                <p>&#9993; claudiamelo.airesacondicionados@hotmail.com</p>
+                <p>&#127968; Dirección: Juan Ignacio López Rayón 104, San Diego, 88930 Cdad. Río Bravo, Tamps.</p>
+            </div>
+            <form class="contact-form">
+                <h2>Envíanos un mensaje</h2>
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="tel" placeholder="Teléfono">
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="submit-button">Enviar Mensaje</button>
+            </form>
+        </div>
+    </main>
+
+    <iframe class="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3586.509467091036!2d-98.08551002459218!3d25.98412337721279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86656d9deaaaaaab%3A0x39e040800aaeb875!2sAdiel%20Auto%20Aire!5e0!3m2!1ses!2smx!4v1727873239478!5m2!1ses!2smx" width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <?php include 'footer.html' ?>
+        
+</body>
+</html>

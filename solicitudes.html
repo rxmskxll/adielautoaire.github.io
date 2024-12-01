@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitanos - Adiel Autoaire</title>
+    <link rel="stylesheet" href="styles/MainStyle.css">
+    <script type="module" src="scripts/main.js"></script>
+
+</head>
+<body class="solicitudes">
+
+    <?php include 'header2.html';?>
+
+    <main class="solicitudes-container" style="margin-top: 130px;">
+        <h1>Solicita tu servicio</h1>
+        <form class="solicitud-form" action="includes/formhandler.inc.php" method="post">
+            <label for="nombre">Nombres:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus nombres" required>
+            
+            <label for="apellido">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellido" placeholder="Ingrese sus apellidos" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required>
+
+            <label for="numero">Número:</label>
+            <input type="tel" id="numero" name="numero" placeholder="Ingrese su número" maxlength="10" pattern="[0-9]{10}" required>
+
+            <label for="correo">Direccion:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Ingrese su direccion" required>
+
+            <h2>¿Qué servicio solicita?</h2>
+            <div class="servicios-grid">
+                <label><input type="checkbox" name="servicio[]" value="instalacion_central"> Instalación de Central</label>
+                <label><input type="checkbox" name="servicio[]" value="reparacion_lavadora"> Reparación de Lavadora</label>
+                <label><input type="checkbox" name="servicio[]" value="lavado_aire"> Lavado de Aire</label>
+                <label><input type="checkbox" name="servicio[]" value="instalacion_mini_split"> Instalación de Mini Split</label>
+                <label><input type="checkbox" name="servicio[]" value="reparacion_refrigerador"> Reparación de Refrigerador</label>
+                <label><input type="checkbox" name="servicio[]" value="reparacion_ac_automotriz"> Reparación de A/C Automotriz</label>
+            </div>
+
+            <label for="otro_servicio">
+            <input type="checkbox" id="checkbox_otro" name="servicio[]" value="otro" onchange="toggleOtroServicio()"> Otro
+        </label>
+            <input type="text" id="otro_servicio" name="otro_servicio" class="otro-input" placeholder="Especifique el servicio" style="display: none;">
+
+            <div class="form-group">
+                <label for="comentarios">Comentarios del trabajo:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" placeholder="Ingrese cualquier comentario adicional"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Solicítanos</button>
+        </form>
+    </main>
+
+    <?php include 'footer.html'; ?>
+
+    <div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="modal-message"></p>
+    </div>
+</div>
+<script>
+    const params = new URLSearchParams(window.location.search);
+if (params.has('message')) {
+    const message = params.get('message');
+    document.getElementById('modal-message').innerText = message;
+    document.getElementById('successModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('successModal').style.display = 'none';
+    history.pushState(null, '', 'solicitudes.php');
+}
+
+function toggleOtroServicio() {
+const checkbox = document.getElementById('checkbox_otro');
+const input = document.getElementById('otro_servicio');
+if (checkbox.checked) {
+    input.style.display = 'block';
+} else {
+    input.style.display = 'none';
+}
+}
+</script>
+
+</body>
+</html>
